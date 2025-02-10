@@ -1,0 +1,8 @@
+<h1>Your Borrowed Books</h1>
+<% @borrowed_books.each do |book| %>
+  <div>
+    <h2><%= book.title %></h2>
+    <p>Due: <%= book.borrowings.last.due_date %></p>
+    <%= link_to 'Return', return_book_path(book.borrowings.last), method: :patch %>
+  </div>
+<% end %>
